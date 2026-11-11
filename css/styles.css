@@ -1,0 +1,181 @@
+:root {
+--primary: #7ca982;
+--secondary: #1b2a4a;
+--bg: #f5f3ef;
+--card: #ffffff;
+--text: #000000;
+--accent: #bfa181;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+font-family: 'Segoe UI', Tahoma, sans-serif;
+background-color: var(--bg);
+color: var(--text);
+line-height: 1.6;
+}
+
+h1, h2, h3 { color: var(--secondary); }
+
+/*menu y encabezado*/
+header {
+position: sticky;
+top: 0;
+z-index: 1000;
+background-color: var(--secondary);
+}
+
+nav {
+display: flex;
+justify-content: space-between;
+align-items: center;
+max-width: 1100px;
+margin: 0 auto;
+padding: 1rem;
+}
+
+nav .logo { color: #fff; font-size: 1.1rem; font-weight: bold; }
+
+nav ul {
+display: flex;
+list-style: none;
+gap: 12px;
+align-items: center;
+flex-wrap: wrap;
+}
+
+nav a {
+color: #ffffff;
+text-decoration: none;
+font-weight: bold;
+padding: 6px 10px;
+transition: all 0.3s ease;
+border-bottom: 3px solid transparent;
+}
+
+nav a:hover { color: var(--primary); }
+
+/*portada*/
+.hero {
+position: relative;
+background: linear-gradient(rgba(27,42,74,0.6), rgba(27,42,74,0.6)), url('../imagenes/portada.jpg') center/cover;
+height: 300px;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+color: #fff;
+text-align: center;
+padding: 0 20px;
+}
+
+.hero h1 { color: #fff; font-size: 2.2rem; margin-bottom: 10px; }
+.hero h3 { color: #f1f1f1; }
+
+/*contenedores y tarjetas*/
+.main-container { max-width: 1100px; margin: 30px auto; padding: 0 20px; }
+
+.intro-text-box, .card, .form-container {
+background-color: var(--card);
+padding: 25px;
+border-radius: 10px;
+box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+border: 1px solid #e0dbd1;
+margin-bottom: 20px;
+}
+
+.intro-text-box { border-left: 5px solid var(--primary); }
+
+/*galeria y hover*/
+.gallery-grid, .autoestima-img-grid {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+grid-auto-rows: 200px;
+gap: 15px;
+margin-top: 20px;
+}
+
+.gallery-grid img, .autoestima-img-grid img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+border-radius: 8px;
+box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+transition: transform 0.3s ease;
+}
+
+.gallery-grid img:hover, .autoestima-img-grid img:hover { transform: scale(1.05); }
+.gallery-grid .img-large { grid-column: span 2; grid-row: span 2; }
+
+/*formularios y distribucion*/
+.content-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 20px; }
+.form-group { margin-bottom: 15px; }
+.form-group label { display: block; font-weight: bold; margin-bottom: 5px; }
+
+input[type="text"], input[type="email"], input[type="number"], input[type="date"], select, textarea {
+width: 100%;
+padding: 10px;
+border: 1px solid var(--accent);
+border-radius: 5px;
+background-color: #faf8f5;
+color: var(--text);
+font-size: 1rem;
+}
+
+input:focus, select:focus, textarea:focus {
+outline: none;
+border-color: var(--primary);
+box-shadow: 0 0 5px rgba(124, 169, 130, 0.4);
+}
+
+input::placeholder, textarea::placeholder { color: #666; font-style: italic; }
+
+.btn-submit {
+background-color: var(--primary);
+color: #fff;
+border: none;
+padding: 12px;
+font-size: 1rem;
+border-radius: 5px;
+cursor: pointer;
+width: 100%;
+font-weight: bold;
+transition: background 0.3s;
+}
+
+.btn-submit:hover { background-color: #628a68; }
+
+/*estilo de mito y realidad*/
+.myth-reality-row {
+display: grid;
+grid-template-columns: 1fr auto 1fr;
+gap: 15px;
+align-items: center;
+background: #faf8f5;
+padding: 15px;
+border-radius: 6px;
+margin-bottom: 15px;
+border-left: 4px solid var(--secondary);
+}
+
+.vs-badge {
+font-weight: bold;
+color: var(--secondary);
+background: #e0dbd1;
+padding: 6px 12px;
+border-radius: 4px;
+text-align: center;
+}
+
+/*responsivo*/
+footer { background-color: var(--secondary); color: #fff; text-align: center; padding: 20px; margin-top: 40px; }
+
+@media (max-width: 768px) {
+nav { flex-direction: column; gap: 10px; text-align: center; }
+.content-grid { grid-template-columns: 1fr; }
+.gallery-grid, .autoestima-img-grid { grid-template-columns: repeat(2, 1fr); }
+.gallery-grid .img-large { grid-column: span 2; grid-row: span 1; }
+.autoestima-img-grid { grid-template-columns: 1fr; }
+.myth-reality-row { grid-template-columns: 1fr; text-align: center; }
+}
